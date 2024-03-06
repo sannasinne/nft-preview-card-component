@@ -93,10 +93,38 @@ body {
   overflow: hidden;
   margin-bottom: 24px;
   cursor: pointer;
+  transition: 0.3s;
+
+  position: relative;
+  display: inline-block;
 }
 
-.card__picture:hover {
-  
+.card__picture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: hsla(178, 100%, 50%, 0);
+  transition: background-color 0.3s ease;
+}
+
+.card__picture:hover::before {
+  background-color: hsla(178, 100%, 50%, 0.6);
+}
+
+.icon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3 ease;
+}
+
+.card__picture:hover .icon-container {
+  opacity: 1;
 }
 
 .card__title {
